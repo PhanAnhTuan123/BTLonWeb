@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./fontawesome-free-6.4.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./base.css">
+    <link rel="stylesheet" href="./grid.css">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="bag.css">
+    <style>
+        .col {
+        text-align: center;
+        background-clip: content-box;
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+    </style>
+</head>
+<body>
+    
+    <div class="grid wide">
+        <div class="row">
+            <div class="col l-12 m-12 c-12">
+                <div class="label-dongho">
+                    <h2 style="font-weight: 700; font-size: 1.8rem;">Đồng Hồ Nam Nữ Chính Hãng</h2>
+                </div>
+                <!-- <div class="vien"></div> -->
+                <div class="disc">
+                    <p>Chúng tôi cam kết mang lại những giá trị cao nhất, chế độ hậu mãi tốt nhất khi quý khách hàng tin dùng & mua sắm đồng hồ nam nữ chính hãng của thương hiệu SHOPDONGHO.com</p>
+                </div>
+              </div>
+        </div>
+        <div class="wrapper">
+            <h1>Shopping Cart</h1>
+            <div class="project">
+                <div class="shop box-container">
+                    <div class="box product-item">
+                        <img src="./product-img/img-for-brands/buvola/bu1.webp" alt="">
+                        <div class="content">
+                            <h3>Women Lipstick</h3>
+                            <h4>Price:$233</h4>
+                            <p class="unit">Quantity: <input type="number" value="2"></p>
+                            <p class="btn-area">
+                                <i class="fa fa-trash"></i>
+                                <span class="btn2">Xóa</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="./product-img/img-for-brands/buvola/bu1.webp" alt="">
+                        <div class="content">
+                            <h3>Women Lipstick</h3>
+                            <h4>Price:$233</h4>
+                            <p class="unit">Quantity: <input type="number" value="2"></p>
+                            <p class="btn-area">
+                                <i class="fa fa-trash"></i>
+                                <span class="btn2">Xóa</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <img src="./product-img/img-for-brands/buvola/bu1.webp" alt="">
+                        <div class="content">
+                            <h3>Women Lipstick</h3>
+                            <h4>Price:$233</h4>
+                            <p class="unit">Quantity: <input type="number" value="2"></p>
+                            <p class="btn-area">
+                                <i class="fa fa-trash"></i>
+                                <span class="btn2">Xóa</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="right-bar">
+                    <p><span>Tổng tiền</span> <span>$120</span></p>
+                    <hr>
+                    <p><span>Phụ thu</span> <span>0</span></p>
+                    <hr>
+                    <p><span>Phí Vận Chuyển</span> <span>0</span></p>
+                    <hr>
+                    <p><span>Thanh Toán</span> <span>$141</span></p>
+                    
+                    <a href="thanhToan.html">Tiến Hành Thanh Toán</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener("load",()=>{
+            let cartProductArr = window.localStorage.getItem("cartProduct");
+            cartProductArr = JSON.parse(cartProductArr);
+            console.log(cartProductArr);
+            let container = document.querySelector(".shop.box-container");
+            console.log(container); 
+            let stringItem = ``;
+            cartProductArr.forEach((item)=>{
+                stringItem+=`<div class="box">
+                        <img src="${item.sp.img[0]}" alt="">
+                        <div class="content">
+                            <h3>${item.sp.name}</h3>
+                            <h4>Price:${item.sp.price}</h4>
+                            <p class="unit">Quantity: <input type="number" value="${item.quantity}"></p>
+                            <p class="btn-area">
+                                <i class="fa fa-trash"></i>
+                                <span class="btn2">Xóa</span>
+                            </p>
+                        </div>
+                    </div>`
+            });
+            container.innerHTML=stringItem;
+        })
+    </script>
+</body>
+</html>
